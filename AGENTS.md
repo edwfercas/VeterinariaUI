@@ -1,6 +1,15 @@
-# Agents
+# Agent Instructions
 
 This file provides context and configuration for AI agents working on this repository.
+
+## Core Rules
+- **Exclusive Agent Directory**: All agent-related configurations, skills, state, or memory must reside exclusively in the `.agents/` directory. Do not create, install, or initialize any other agent-specific folders (e.g., `.cursor/`, `.cline/`, `.aider/`,`.claude/`) in this workspace.
+
+## Constraints & Filters
+- **Avoid modifying/deleting databases**: NEVER delete, purge, format, or overwrite database files (`*.sqlite`, `*.sqlite3`, `*.db`, `*.mdf`). Do not execute destructive commands in the terminal (e.g., `rm`, `drop table`).
+- **Secrets and PKI Isolation**: FORBIDDEN to read, modify, or print the contents of `.env` or `secrets.json` files. Completely ignore any certificate or private key files (`*.pem`, `*.key`, `*.crt`, `*.p12`).
+- **Security**: Never suggest hardcoding credentials in the source code, nor ask the user to paste a private key into the chat.
+
 
 ## Project Overview
 **Name:** VeterinariaUI
