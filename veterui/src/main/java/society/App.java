@@ -13,11 +13,14 @@ import java.io.IOException;
  */
 public class App extends Application {
 
+    private static final String FXML_ROOT = "/society/";
+
     private static Scene scene;
 
     @Override
     public void start(Stage stage) throws IOException {
         scene = new Scene(loadFXML("MainView"));
+        stage.setTitle("VeterinariaUI");
         stage.setScene(scene);
         stage.show();
     }
@@ -27,7 +30,12 @@ public class App extends Application {
     }
 
     private static Parent loadFXML(String fxml) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
+        var resource = App.class.getResource(FXML_ROOT + fxml + ".fxml");
+        if (resource == null) {
+            throw new IOException("No se encontro el archivo FXML: " + FXML_ROOT + fxml + ".fxml");
+        }
+
+        FXMLLoader fxmlLoader = new FXMLLoader(resource);
         return fxmlLoader.load();
     }
 
